@@ -168,10 +168,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _particlePrefab: {fileID: 2312349357290463402, guid: c46f15fcc1c2cb74fa7cd053c504e5bb, type: 3}
-  _particleParent: {fileID: 286541614}
   _spawnDelay: 0.2
   _particleSpeed: 5
   _spawnerRadius: 4
+  _particleDrag: 0.5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +316,10 @@ PrefabInstance:
     - target: {fileID: 2312349357290463392, guid: c46f15fcc1c2cb74fa7cd053c504e5bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312349357290463397, guid: c46f15fcc1c2cb74fa7cd053c504e5bb, type: 3}
+      propertyPath: m_Autodestruct
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2312349357290463402, guid: c46f15fcc1c2cb74fa7cd053c504e5bb, type: 3}
       propertyPath: m_Name
