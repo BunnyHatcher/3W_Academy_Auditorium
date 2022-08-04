@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2312349357290463399}
   - component: {fileID: 2312349357290463396}
   - component: {fileID: 2312349357290463397}
+  - component: {fileID: 5852535295823298938}
   m_Layer: 0
   m_Name: Particle
   m_TagString: Untagged
@@ -96,7 +97,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -154,7 +155,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,13 +192,22 @@ TrailRenderer:
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.971831
+        value: 0
+        inSlope: -1.9505962
+        outSlope: -1.9505962
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.10386474
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.7169812, g: 0.47009614, b: 0.47009614, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.07524917, g: 0.08558405, b: 0.8396226, a: 1}
+      key1: {r: 0.08187969, g: 0.754717, b: 0.21310377, a: 0.8784314}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -232,3 +242,16 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &5852535295823298938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2312349357290463402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db58eeb75c0d780479aa92d57d6159e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minimumSpeed: 5
