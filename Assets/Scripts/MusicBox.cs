@@ -24,6 +24,7 @@ public class MusicBox : MonoBehaviour
 
     private void Update()
     {
+        // Simulating the volume decay after a certain time span
         if(Time.time > _startDecayTime)
         {
            _volume = Mathf.Clamp01(_volume - _volumeDecayPerSecond * Time.deltaTime);

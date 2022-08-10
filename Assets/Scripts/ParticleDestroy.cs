@@ -17,7 +17,7 @@ public class ParticleDestroy : MonoBehaviour
     {
         if(_rigidbody.velocity.magnitude < _minimumSpeed)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
