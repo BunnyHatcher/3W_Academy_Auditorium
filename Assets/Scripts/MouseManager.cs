@@ -21,10 +21,27 @@ public class MouseManager : MonoBehaviour
         {
             Debug.DrawRay(ray.origin, ray.direction * 150f, Color.green);
             Debug.Log("Touchdown!");
+            
+            //set cursor to Move sprite if it hits a target with the "Move" tag
+            if(hit.collider.CompareTag("Move"))
+            {
+                Cursor.SetCursor(_mouseMoveTexture, new Vector2(16f, 16f), CursorMode.Auto);
+            }
+            //set cursor to Move sprite if it hits a target with the "Resize" tag
+            else if (hit.collider.CompareTag("Resize"))
+            {
+                Cursor.SetCursor(_mouseResizeTexture, new Vector2(16f, 16f), CursorMode.Auto);
+            }
+            //put an else just in case...
+            else
+            {
+                Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+            }
         }
         else
         {
             Debug.DrawRay(ray.origin, ray.direction * 150f, Color.red);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 }
