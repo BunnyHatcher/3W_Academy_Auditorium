@@ -26,11 +26,26 @@ public class MouseManager : MonoBehaviour
             if(hit.collider.CompareTag("Move"))
             {
                 Cursor.SetCursor(_mouseMoveTexture, new Vector2(16f, 16f), CursorMode.Auto);
+                if( Input.GetMouseButtonDown(0))
+                {
+                    _activeEffector = hit.collider.transform.parent;
+                }
+                // When I click on the Move field of an effector, I move it
+                if( _activeEffector != null)
+                {
+                    //to avoid moving the effector on the z-axis, we have to create a new Vector3 with the z-axis fixed on the original position
+                    Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    _activeEffector.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, _activeEffector.transform.position.z); 
+                }
             }
             //set cursor to Move sprite if it hits a target with the "Resize" tag
             else if (hit.collider.CompareTag("Resize"))
             {
                 Cursor.SetCursor(_mouseResizeTexture, new Vector2(16f, 16f), CursorMode.Auto);
+                if (Input.GetMouseButtonDown(0))
+                {
+                    _activeEffector = hit.collider.transform;
+                }
             }
             //put an else just in case...
             else
@@ -43,5 +58,13 @@ public class MouseManager : MonoBehaviour
             Debug.DrawRay(ray.origin, ray.direction * 150f, Color.red);
             Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
+
+        // If you release the Left Mouse Button, nothing is selected
+        if( Input.GetMouseButtonUp(0))
+        {
+            _activeEffector = null;
+        }
     }
+
+    private Transform _activeEffector;
 }
