@@ -64,7 +64,7 @@ public class ParticleGenerator : MonoBehaviour
     private GameObject SpawnParticle()
     {
         //define random position within a given radius and add the transform position of the spawner
-        //3. use variable "_tranform" instead of transform
+        //3. use variable "_transform" instead of transform
         Vector2 pos = Random.insideUnitCircle * _spawnerRadius + (Vector2)_transform.position;
 
         /*create particle based on prefab and position we just created

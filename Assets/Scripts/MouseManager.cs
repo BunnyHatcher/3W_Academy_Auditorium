@@ -7,6 +7,10 @@ public class MouseManager : MonoBehaviour
 
     [SerializeField] private LayerMask _layerMask;
 
+    [SerializeField] private float _forceRatio = 10;
+
+    [SerializeField] private Vector2 _radiusLimit = new Vector2(1f, 5f); // x is the minimum, y is the maximum
+
     [Header("Cursor Texture")]
     [SerializeField] private Texture2D _mouseMoveTexture;
     [SerializeField] private Texture2D _mouseResizeTexture;
@@ -45,6 +49,16 @@ public class MouseManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0))
                 {
                     _activeEffector = hit.collider.transform;
+                }
+
+                if(_activeEffector != null)
+                {
+                    float radius = Vector2.Distance(_activeEffector.position, hit.point);
+
+                    radius = Mathf.Clamp(radius, _radiusLimit.x, _radiusLimit.y);
+
+                    _activeEffector.GetComponent<CircleShape>().Radius = radius;
+                    _activeEffector.GetComponent<AreaEffector2D>().forceMagnitude = radius * _forceRatio;
                 }
             }
             //put an else just in case...
