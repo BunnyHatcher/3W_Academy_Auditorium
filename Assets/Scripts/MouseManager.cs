@@ -42,7 +42,7 @@ public class MouseManager : MonoBehaviour
                     _activeEffector.transform.position = new Vector3(worldMousePosition.x, worldMousePosition.y, _activeEffector.transform.position.z); 
                 }
             }
-            //set cursor to Move sprite if it hits a target with the "Resize" tag
+            //set cursor to Resize sprite if it hits a target with the "Resize" tag
             else if (hit.collider.CompareTag("Resize"))
             {
                 Cursor.SetCursor(_mouseResizeTexture, new Vector2(16f, 16f), CursorMode.Auto);
